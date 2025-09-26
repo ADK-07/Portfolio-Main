@@ -9,7 +9,7 @@ export const techStacks = [
 ];
 
 export const social = [
-  { icon: Github, href: "https://github.com/ADK-07", label: "Github" },
+  { icon: Github , href: "https://github.com/ADK-07", label: "Github" },
   {
     icon: Linkedin,
     href: "https://www.linkedin.com/in/adarsh-c-289024333",

@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { Download, Mail, Github, Linkedin } from "lucide-react";
-import hero from "../assets/hero/deku.png";
+import hero from "../assets/hero/hero.png";
 import { roles, techStacks, social } from "../data/hero";
 
 // Floating animation for hero image
@@ -171,7 +171,7 @@ const Home = () => {
             >
               {/* Glowing effect */}
               <div className="absolute -inset-4 rounded-full bg-gradient-to-br 
-                from-blue-500 to-purple-500 blur-2xl opacity-20"
+                from-yellow-500 to-amber-500 blur-2xl opacity-20"
               ></div>
 
               {/* Image container */}
@@ -180,7 +180,7 @@ const Home = () => {
                   src={hero}
                   alt="Adarsh c"
                   className="w-72 h-72 md:w-80 md:h-80 lg:w-90 lg:h-90 
-                    object-cover rounded-full"
+                    object-cover rounded-full "
                 />
               </div>
             </motion.div>
