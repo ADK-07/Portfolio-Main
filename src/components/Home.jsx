@@ -90,7 +90,7 @@ const Home = () => {
 
             {/* Tech stack */}
             <h3 className="uppercase text-sm tracking-wider mb-6 text-gray-500">
-              Tech stack I'm learning
+              Techonologies
             </h3>
             <div className="flex flex-wrap justify-center gap-4 mb-12 mx-auto max-w-2xl">
               {techStacks.map((tech, i) => (
