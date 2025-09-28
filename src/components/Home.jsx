@@ -34,9 +34,8 @@ const Home = () => {
       className="min-h-screen flex justify-center items-center 
         dark:bg-gray-800 dark:text-gray-300 bg-gray-50"
     >
-      <div className="max-w-7xl mx-auto px-6 py-24 relative z-10">
+      <div className="max-w-7xl mx-auto px-6 py-24 relative z-10 ">
         <div className="flex flex-col lg:flex-row items-center gap-12">
-          
           {/* Left content */}
           <motion.div
             initial="hidden"
@@ -45,7 +44,8 @@ const Home = () => {
           >
             {/* Greeting */}
             <div className="mb-6">
-              <span className="text-lg md:text-xl font-medium 
+              <span
+                className="text-lg md:text-xl font-medium 
                 dark:text-blue-400 text-blue-600"
               >
                 Hello I'm
@@ -62,7 +62,8 @@ const Home = () => {
 
             {/* Rotating role */}
             <div className="mb-8">
-              <div className="md:text-2xl lg:text-3xl font-semibold h-12 flex 
+              <div
+                className="md:text-2xl lg:text-3xl font-semibold h-12 flex 
                 items-center justify-center lg:justify-start"
               >
                 <motion.span
@@ -79,7 +80,8 @@ const Home = () => {
             </div>
 
             {/* About text */}
-            <p className="text-lg md:text-xl max-w-3xl mx-auto mb-8 
+            <p
+              className="text-lg md:text-xl max-w-3xl mx-auto mb-8 
               dark:text-gray-400 text-gray-600"
             >
               Fresh CS Engineering graduate (2021-2025) with a passion for
@@ -122,9 +124,13 @@ const Home = () => {
                 href="/ADARSH C.pdf"
                 className="px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-500 
                   text-white rounded-full font-semibold flex items-center 
-                  justify-center gap-2 shadow-lg hover:shadow-xl transition-shadow"
+                  justify-center gap-2 shadow-lg hover:shadow-xl group hover:scale-105 transition-all"
               >
-                <Download size={20} /> <span>Download Resume</span>
+                <Download
+                  className="group-hover:animate-bounce transition-all duration-300"
+                  size={20}
+                />{" "}
+                <span>Download Resume</span>
               </a>
 
               {/* Contact button */}
@@ -132,10 +138,14 @@ const Home = () => {
                 href="mailto:adarshkannanvfc@gamil.com"
                 className="px-8 py-4 rounded-full font-semibold flex items-center 
                   justify-center gap-2 shadow-lg hover:shadow-xl transition-colors
-                  dark:border-gray-700 dark:text-gray-300 dark:hover:border-gray-600 dark:hover:bg-gray-800
-                  border-gray-300 text-gray-700 hover:border-gray-400 hover:bg-gray-50 border"
+                  dark:border-gray-700 dark:text-gray-300 dark:hover:border-gray-200 dark:hover:bg-gray-800
+                  border-gray-300 text-gray-700 hover:border-gray-400 hover:bg-gray-50 border hover:scale-105 group"
               >
-                <Mail size={20} /> <span>Get In Touch</span>
+                <Mail
+                  className="group-hover:animate-bounce transition-all duration-300"
+                  size={20}
+                />{" "}
+                <span>Get In Touch</span>
               </a>
             </motion.div>
 
@@ -170,7 +180,8 @@ const Home = () => {
               className="relative"
             >
               {/* Glowing effect */}
-              <div className="absolute -inset-4 rounded-full bg-gradient-to-br 
+              <div
+                className="absolute -inset-4 rounded-full bg-gradient-to-br 
                 from-yellow-500 to-amber-500 blur-2xl opacity-20"
               ></div>
 
