@@ -1,12 +1,12 @@
 import { motion } from "framer-motion";
-import { div } from "framer-motion/client";
 import { Globe, Code, Target, Github, Calendar, Tag } from "lucide-react";
 import { useState } from "react";
+import CircularProgress from "./CircularProgress";
+
 
 const tabs = [
   { id: 0, label: "Overview", icon: Globe },
   { id: 1, label: "Skills", icon: Code },
-  { id: 2, label: "Goals", icon: Target },
 ];
 
 const skills = [
@@ -81,13 +81,40 @@ const renderOverview = () => (
           easier collaboration in team projects.
         </p>
       </motion.div>
+
+      <div>
+        {[
+          {
+            name: "Web Development",
+            level: 80,
+            color: "from-blue-500 to-blue-600",
+          },
+          {
+            name: "UI/UX Design",
+            level: 60,
+            color: "from-blue-500 to-blue-600",
+          },
+          {
+            name: "Logo Design",
+            level: 70,
+            color: "from-blue-500 to-blue-600",
+          },
+        ].map((skill) => (
+          <div key={skill.name} className="flex flex-col items-center gap-2">
+            <span className="text-sm font-medium">{skill.name}</span>
+            <CircularProgress level={skill.level} />
+          </div>
+        ))}
+      </div>
     </div>
-    <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-6 mt-12">
+
+    {/* stats */}
+    <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-6 mt-8 mb-8">
       {[
         { label: "Projects Completed", value: "6+", icon: Code },
-        { label: "Technologies Used", value: "15+", icon: Tag },
-        { label: "Lines of Code", value: "10k+", icon: Github },
-        { label: "Hours Coding", value: "500+", icon: Calendar },
+        { label: "Technologies Used", value: "10+", icon: Tag },
+        { label: "Lines of Code", value: "5k+", icon: Github },
+        { label: "Hours Coding", value: "300+", icon: Calendar },
       ].map((stat) => (
         <motion.div
           whileHover={{ scale: 1.05 }}
@@ -203,7 +230,6 @@ const About = () => {
         >
           {activeTab === 0 && renderOverview()}
           {activeTab === 1 && renderSkill()}
-          {activeTab === 2 && renderJourney()}
         </motion.div>
       </div>
     </section>
