@@ -16,6 +16,29 @@ const floatingvariants = {
   },
 };
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+      delayChildren: 0.1,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { y: 50, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.8,
+      ease: "easeOut",
+    },
+  },
+};
+
 const Home = () => {
   const [currentRole, setCurrentRole] = useState(0);
 
@@ -38,30 +61,31 @@ const Home = () => {
         <div className="flex flex-col lg:flex-row items-center gap-12">
           {/* Left content */}
           <motion.div
+            variants={containerVariants}
             initial="hidden"
             animate="visible"
             className="text-center lg:text-left order-2 lg:order-1"
           >
             {/* Greeting */}
-            <div className="mb-6">
+            <motion.div variants={itemVariants} className="mb-6">
               <span
                 className="text-lg md:text-xl font-medium 
                 dark:text-blue-400 text-blue-600"
               >
                 Hello I'm
               </span>
-            </div>
+            </motion.div>
 
             {/* Name */}
-            <h1
+            <motion.h1 variants={itemVariants}
               className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 
                 bg-gradient-to-r from-cyan-500 to-blue-500 bg-clip-text text-transparent"
             >
               ADARSH C
-            </h1>
+            </motion.h1>
 
             {/* Rotating role */}
-            <div className="mb-8">
+            <motion.div variants={itemVariants} className="mb-8">
               <div
                 className="md:text-2xl lg:text-3xl font-semibold h-12 flex 
                 items-center justify-center lg:justify-start"
@@ -77,10 +101,10 @@ const Home = () => {
                   {roles[currentRole]}
                 </motion.span>
               </div>
-            </div>
+            </motion.div>
 
             {/* About text */}
-            <p
+            <motion.p variants={itemVariants}
               className="text-lg md:text-xl max-w-3xl mx-auto mb-8 
               dark:text-gray-400 text-gray-600"
             >
@@ -88,12 +112,12 @@ const Home = () => {
               creating digital experiences. Eager to dive into full-stack
               development and build innovative web solutions that make a
               difference.
-            </p>
+            </motion.p>
 
             {/* Tech stack */}
-            <h3 className="uppercase text-sm tracking-wider mb-6 text-gray-500">
-              Techonologies
-            </h3>
+            <motion.h3  variants={itemVariants} className="uppercase text-sm tracking-wider mb-6 text-gray-500">
+              Technologies
+            </motion.h3>
             <div className="flex flex-wrap justify-center gap-4 mb-12 mx-auto max-w-2xl">
               {techStacks.map((tech, i) => (
                 <motion.div
@@ -118,23 +142,25 @@ const Home = () => {
             </div>
 
             {/* Buttons */}
-            <motion.div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+            <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
               {/* Resume button */}
-              <a
+              <motion.a
+                whileHover={{ scale: 1.05 }}
                 href="/ADARSH C.pdf"
                 className="px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-500 
                   text-white rounded-full font-semibold flex items-center 
-                  justify-center gap-2 shadow-lg hover:shadow-xl group hover:scale-105 transition-all"
+                  justify-center gap-2 shadow-lg hover:shadow-xl group transition-all"
               >
                 <Download
                   className="group-hover:animate-bounce transition-all duration-300"
                   size={20}
                 />{" "}
                 <span>Download Resume</span>
-              </a>
+              </motion.a>
 
               {/* Contact button */}
-              <a
+              <motion.a
+                whileHover={{ scale: 1.05 }}
                 href="mailto:adarshkannanvfc@gamil.com"
                 className="px-8 py-4 rounded-full font-semibold flex items-center 
                   justify-center gap-2 shadow-lg hover:shadow-xl transition-colors
@@ -146,7 +172,7 @@ const Home = () => {
                   size={20}
                 />{" "}
                 <span>Get In Touch</span>
-              </a>
+              </motion.a>
             </motion.div>
 
             {/* Social links */}
