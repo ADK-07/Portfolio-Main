@@ -4,7 +4,6 @@ import { Globe, Code, Target, Github, Calendar, Tag } from "lucide-react";
 import { useState } from "react";
 import CircularProgress from "./CircularProgress";
 
-
 const tabs = [
   { id: 0, label: "Overview", icon: Globe },
   { id: 1, label: "Skills", icon: Code },
@@ -83,7 +82,7 @@ const renderOverview = () => (
         </p>
       </motion.div>
 
-      <div>
+      <div className="flex lg:flex-col  justify-around items-center">
         {[
           {
             name: "Web Development",
@@ -101,9 +100,9 @@ const renderOverview = () => (
             color: "from-blue-500 to-blue-600",
           },
         ].map((skill) => (
-          <div key={skill.name} className="flex flex-col items-center gap-2">
-            <span className="text-sm font-medium">{skill.name}</span>
+          <div key={skill.name} className="flex flex-col  items-center gap-2">
             <CircularProgress level={skill.level} />
+            <span className="text-sm font-medium">{skill.name}</span>
           </div>
         ))}
       </div>
