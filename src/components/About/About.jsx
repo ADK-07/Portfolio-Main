@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
 import { Globe, Code, Target, Github, Calendar, Tag } from "lucide-react";
 import { useState } from "react";
@@ -181,7 +182,7 @@ const About = () => {
   const [activeTab, setActiveTab] = useState(0);
 
   return (
-    <section className="min-h-screen bg-gray-50 text-gray-800 dark:bg-gray-700 dark:text-gray-300">
+    <section className="min-h-screen bg-gray-50 text-gray-800 dark:bg-gray-800 dark:text-gray-300">
       <div className="max-w-7xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
