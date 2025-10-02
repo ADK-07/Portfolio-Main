@@ -1,7 +1,7 @@
 import Bhub from "../../assets/Project/Bhub.png";
 import SmartImg from "../../assets/Project/SmartIrrigation.png";
 import todolistImage from "../../assets/Project/TodoList.png";
-import CalculatorImage from "../../assets/Project/calculator.png";
+import CalculatorImage from "../../assets/Project/Calculator.png";
 import BaseImage from "../../assets/Project/Base project.png";
 import ProjectCard from "./ProjectCard";
 
