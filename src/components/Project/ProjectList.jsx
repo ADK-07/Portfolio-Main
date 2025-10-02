@@ -122,11 +122,11 @@ const projects = [
 
 const ProjectList = () => {
   return (
-    <div className="relative">
+    <div className="relative space-y-40">
       {projects.map((project, index) => (
         <div
           key={project.id}
-          className={`sticky top-20 mb-40 last:mb-20`}
+          className={`sticky top-20 mb-40 last:mb-20 `}
           style={{
             zIndex: index + 1, // adjust 120px based on card height
           }}
