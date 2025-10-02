@@ -2,7 +2,7 @@ import Home from './components/Home'
 import Navbar from './components/Navbar';
 import ThemeProvider from './Theme/ThemeContext';
 import About from './components/About/About'
-import Project from './components/About/Project/Project';
+import Project from './components/Project/Project';
 
 
 const App = () => {
