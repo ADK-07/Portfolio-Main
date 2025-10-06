@@ -2,7 +2,10 @@ import ProjectList from "./ProjectList";
 
 const Project = () => {
   return (
-    <section className="py-16 bg-gray-50 text-gray-700 dark:bg-gray-800 dark:text-gray-300">
+    <section
+      className="py-20 bg-gradient-to-b from-gray-50 to-white 
+dark:from-gray-900 dark:to-gray-800 text-gray-800 dark:text-gray-200"
+    >
       <div className="max-w-7xl mx-auto px-6">
         {/* Section Title */}
         <h2 className="text-3xl md:text-5xl font-extrabold  bg-gradient-to-r from-cyan-500 to-blue-500 bg-clip-text text-transparent mb-8 text-center">
@@ -16,7 +19,7 @@ const Project = () => {
         </p>
 
         {/* Projects Grid */}
-        <div className="mt-12 relative min-h-[400vh]">
+        <div className="mt-14">
           <ProjectList />
         </div>
       </div>

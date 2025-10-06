@@ -1,61 +1,56 @@
 import Bhub from "../../assets/Project/Bhub.png";
 import SmartImg from "../../assets/Project/SmartIrrigation.png";
-import todolistImage from "../../assets/Project/TodoList.png";
+import TodoListImage from "../../assets/Project/TodoList.png";
 import CalculatorImage from "../../assets/Project/Calculator.png";
 import BaseImage from "../../assets/Project/Base project.png";
 import ProjectCard from "./ProjectCard";
+// eslint-disable-next-line no-unused-vars
+import { motion } from "framer-motion";
 
 const projects = [
   {
     id: 1,
-    title: "BHUB- Book Uploading and Reading Platform",
-    category: "fullstack",
+    title: "BHUB – Book Uploading and Reading Platform",
+    category: "Full Stack",
     description:
-      "A modern book uploading and reading platform for book enthusias which have role based access to the pages.",
-    longDescription:
-      "Comprehensive e-commerce solution featuring user authentication, product catalog, shopping cart, order management, and payment integration. Includes admin panel for inventory management and analytics.",
+      "A modern platform for book enthusiasts with role-based access and an integrated reading experience.",
     technologies: ["PHP", "HTML", "MySQL", "CSS", "JavaScript"],
     demoUrl: "https://bhub.fwh.is",
     githubUrl: "https://github.com/abhinavhh/BHUB",
     image: Bhub,
     date: "2024",
-    status: "Completed",
     highlights: [
       "User Engagement",
-      "Integrated design",
-      "Admin dashboard",
-      "Responsive design",
+      "Integrated Design",
+      "Admin Dashboard",
+      "Responsive UI",
     ],
   },
   {
     id: 2,
-    title: "To Do List App",
-    category: "web",
+    title: "To-Do List App",
+    category: "Web",
     description:
-      "This web application provides a practical solution for staying organized and boosting productivity, offering the benefits of task organization, improved time management, and reduced stress.",
-    longDescription: "",
+      "A task management app to stay organized and improve productivity with intuitive UI and smooth experience.",
     technologies: ["React", "Tailwind CSS", "Vite"],
-    image: todolistImage,
+    image: TodoListImage,
     demoUrl:
       "https://to-do-1on2-git-main-adk-07s-projects.vercel.app?_vercel_share=691Lix968lguZmF7DiFhzWfl3CknHujU",
     githubUrl: "https://github.com/ADK-07/ToDo/tree/main/ToDoList",
     date: "2025",
-    status: "Completed",
     highlights: [
-      "Real-time collaboration",
-      "Drag & drop",
-      "File sharing",
-      "Progress tracking",
+      "Drag & Drop",
+      "Progress Tracking",
+      "File Sharing",
+      "Responsive UI",
     ],
   },
   {
     id: 3,
-    title: "IoT Enabled Smart Irrigation System",
-    category: "fullstack",
+    title: "IoT-Enabled Smart Irrigation System",
+    category: "Full Stack",
     description:
-      "A automate water controlling system for agriculture using ESP32 and Arduino with a web interface for monitoring and control.",
-    longDescription:
-      "An IoT-enabled smart irrigation system that automates water control for agriculture. Features include real-time monitoring, remote control, and data visualization through a web interface.",
+      "Automated water control system for agriculture using ESP32, Arduino, and a real-time monitoring web interface.",
     technologies: [
       "React",
       "Arduino IDE",
@@ -67,72 +62,61 @@ const projects = [
     demoUrl: "https://smart-irrigation-rho.vercel.app/home",
     githubUrl: "https://github.com/ADK-07/smart-irrigation-local",
     date: "2024",
-    status: "Completed",
     highlights: [
-      "Real-time monitoring",
-      "Remote control",
-      "Data visualization",
-      "Automated scheduling",
+      "Real-time Monitoring",
+      "Remote Control",
+      "Data Visualization",
+      "Automated Scheduling",
     ],
   },
   {
     id: 4,
-    title: "Calculator",
-    category: "web",
+    title: "Calculator App",
+    category: "Web",
     description:
-      "A simple to use calculator application with basic arithmetic operations.",
-    longDescription:
-      "A comprehensive calculator application built with React.js and Tailwind CSS. It features basic arithmetic operations, a user-friendly interface, and a fully responsive design for seamless usage across devices",
+      "A simple and responsive calculator with basic arithmetic operations built using React and Tailwind CSS.",
     technologies: ["React", "Node.js", "Express", "MongoDB", "Mongoose"],
     image: CalculatorImage,
     demoUrl:
       "https://calculator-git-main-adk-07s-projects.vercel.app?_vercel_share=n8BCxcjU7Zr9VlpUH4IXC5pswWfKkvBQ",
     githubUrl: "https://github.com/ADK-07/calculator",
     date: "2025",
-    status: "Completed",
-    highlights: [
-      "Basic arithmetic operations",
-      "Simple UI",
-      "Responsive design",
-    ],
+    highlights: ["Basic Operations", "Responsive Design", "Clean UI"],
   },
   {
     id: 5,
-    title: "Base Project",
-    category: "web",
+    title: "Base Project Template",
+    category: "Web",
     description:
-      "A starter template for React projects with essential configurations and best practices.",
-    longDescription:
-      "A React.js and Tailwind CSS base project template designed for rapid web application development. It features a responsive layout, clean component structure, and easily extendable architecture for building modern web apps.",
+      "A ready-to-use React + Tailwind CSS starter template with clean structure and best practices.",
     technologies: ["React", "Node.js", "MongoDB", "Express"],
     image: BaseImage,
     demoUrl:
       "https://base-project-git-main-adk-07s-projects.vercel.app?_vercel_share=s0kbbpB1shpiZTvMBVZ7lXjAY2KuhXh5",
     githubUrl: "https://github.com/ADK-07/base-project",
     date: "2025",
-    status: "Completed",
     highlights: [
-      "Responsive design",
-      "Clean component structure",
-      "Easily extendable architecture",
-      "Tailwind CSS integration",
+      "Responsive Design",
+      "Reusable Components",
+      "Modern Layout",
+      "Tailwind Integration",
     ],
   },
 ];
-
 const ProjectList = () => {
   return (
-    <div className="relative space-y-40">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 items-stretch">
       {projects.map((project, index) => (
-        <div
+        <motion.div
           key={project.id}
-          className={`sticky top-20 mb-40 last:mb-20 `}
-          style={{
-            zIndex: index + 1, // adjust 120px based on card height
-          }}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: index * 0.1 }}
+          className="flex w-full"
         >
           <ProjectCard project={project} />
-        </div>
+        </motion.div>
       ))}
     </div>
   );
