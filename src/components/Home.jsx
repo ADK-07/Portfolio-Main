@@ -73,16 +73,17 @@ const Home = () => {
                 className="text-lg md:text-xl font-medium 
                 dark:text-blue-400 text-blue-600"
               >
-                Hello I'm
+                Hey There
               </span>
             </motion.div>
 
             {/* Name */}
-            <motion.h1 variants={itemVariants}
+            <motion.h1
+              variants={itemVariants}
               className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 
                 bg-gradient-to-r from-cyan-500 to-blue-500 bg-clip-text text-transparent"
             >
-              ADARSH C
+              I'm ADARSH C
             </motion.h1>
 
             {/* Rotating role */}
@@ -105,7 +106,8 @@ const Home = () => {
             </motion.div>
 
             {/* About text */}
-            <motion.p variants={itemVariants}
+            <motion.p
+              variants={itemVariants}
               className="text-lg md:text-xl max-w-3xl mx-auto mb-8 
               dark:text-gray-400 text-gray-600"
             >
@@ -116,7 +118,10 @@ const Home = () => {
             </motion.p>
 
             {/* Tech stack */}
-            <motion.h3  variants={itemVariants} className="uppercase text-sm tracking-wider mb-6 text-gray-500">
+            <motion.h3
+              variants={itemVariants}
+              className="uppercase text-sm tracking-wider mb-6 text-gray-500"
+            >
               Technologies
             </motion.h3>
             <div className="flex flex-wrap justify-center gap-4 mb-12 mx-auto max-w-2xl">
@@ -143,7 +148,10 @@ const Home = () => {
             </div>
 
             {/* Buttons */}
-            <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+            <motion.div
+              variants={itemVariants}
+              className="flex flex-col sm:flex-row gap-4 justify-center mb-12"
+            >
               {/* Resume button */}
               <motion.a
                 whileHover={{ scale: 1.05 }}
