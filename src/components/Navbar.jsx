@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 import { AnimatePresence, motion } from "framer-motion";
 import logo from "../assets/logo/logo.png";
 import useTheme from "../Theme/useTheme";

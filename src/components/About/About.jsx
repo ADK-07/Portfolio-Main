@@ -26,6 +26,11 @@ const skills = [
       { name: "MySQL", level: 75, color: "from-blue-500 to-blue-600" },
     ],
   },
+
+  {
+    category: "Backend",
+    technologies: [],
+  },
 ];
 
 const containerVariants = {
@@ -134,54 +139,93 @@ const renderOverview = () => (
   </motion.div>
 );
 
-const renderSkill = () => (
-  <motion.div
-    variants={containerVariants}
-    initial="hidden"
-    whileInView="visible"
-    className="md:grid md:grid-cols-2 gap-8 grid-cols-1 "
-  >
-    {skills.map((skill) => (
-      <motion.div
-        variants={itemVariants}
-        initial="hidden"
-        animate="visible"
-        key={skill.category}
-        className="max-w-xl space-y-4"
-      >
-        <h3 className="text-xl font-bold text-blue-500 mb-4">
-          {skill.category}
-        </h3>
-        <div className="flex flex-col gap-4">
-          {skill.technologies.map((tech) => (
-            <div key={tech.name}>
-              <div className="space-y-2 flex justify-between">
-                <h4>{tech.name}</h4>
-                <span>{tech.level}%</span>
-              </div>
-              <div className="h-2 bg-gray-400 dark:bg-gray-600 rounded-lg">
-                <motion.div
-                  initial={{ width: 0 }}
-                  whileInView={{
-                    width: `${tech.level}%`,
-                    transition: { duration: 1.5, ease: "easeOut", delay: 0.5 },
-                  }}
-                  className={`h-full rounded-lg bg-gradient-to-r ${tech.color} w-[${tech.level}%]`}
-                ></motion.div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </motion.div>
-    ))}
-  </motion.div>
-);
+const renderSkill = (activeCategory, setActiveCategory) => {
+  const activeSkill = skills.find((skill) => skill.category === activeCategory);
+
+  return (
+    <motion.div
+      variants={containerVariants}
+      initial="hidden"
+      whileInView="visible"
+      className="grid md:grid-cols-2 gap-8 grid-cols-1 "
+    >
+      {/* LEFT COLUMN — CATEGORY BUTTONS */}
+      <div className=" grid grid-cols-2 gap-4  p-6 ">
+        {skills.map((skill) => (
+          <motion.button
+            key={skill.category}
+            variants={itemVariants}
+            initial="hidden"
+            animate="visible"
+            onClick={() => setActiveCategory(skill.category)}
+            className={`w-full text-center h-20 px-4 py-2 rounded-xl mb-8 font-medium transition-all duration-300 border
+              ${
+                activeCategory === skill.category
+                  ? "bg-gradient-to-r from-cyan-500 to-blue-500 text-white shadow-lg border-transparent"
+                  : "bg-gray-400/20 text-gray-700 dark:text-gray-300 border-gray-400/30 hover:bg-gray-200 dark:hover:bg-gray-700"
+              }`}
+          >
+            {skill.category}
+          </motion.button>
+        ))}
+      </div>
+
+      {/* RIGHT COLUMN — TECHNOLOGIES OR MESSAGE */}
+      <div className="flex flex-col justify-center space-y-6">
+        {activeSkill && (
+          <motion.div
+            key={activeSkill.category}
+            variants={itemVariants}
+            initial="hidden"
+            animate="visible"
+            className="space-y-5 border border-gray-300 dark:border-gray-700 rounded-xl p-6"
+          >
+            {/* IF TECHNOLOGIES EXIST */}
+            {activeSkill.technologies && activeSkill.technologies.length > 0 ? (
+              activeSkill.technologies.map((tech) => (
+                <div key={tech.name}>
+                  <div className="flex justify-between items-center">
+                    <h4 className="font-medium">{tech.name}</h4>
+                    <span className="text-sm">{tech.level}%</span>
+                  </div>
+                  <div className="h-2 bg-gray-300 dark:bg-gray-600 rounded-lg overflow-hidden">
+                    <motion.div
+                      initial={{ width: 0 }}
+                      whileInView={{
+                        width: `${tech.level}%`,
+                        transition: {
+                          duration: 1.5,
+                          ease: "easeOut",
+                          delay: 0.3,
+                        },
+                      }}
+                      className={`h-full rounded-lg bg-gradient-to-r ${tech.color}`}
+                    ></motion.div>
+                  </div>
+                </div>
+              ))
+            ) : (
+              // IF EMPTY → SHOW THIS MESSAGE
+              <p className="text-gray-500 dark:text-gray-400 italic text-lg text-center py-4">
+                Not learned any of it yet.
+              </p>
+            )}
+          </motion.div>
+        )}
+      </div>
+    </motion.div>
+  );
+};
 
 const About = () => {
   const [activeTab, setActiveTab] = useState(0);
+  const [activeCategory, setActiveCategory] = useState("Frontend");
 
   return (
-    <section className="min-h-screen bg-gray-50 text-gray-800 dark:bg-gray-800 dark:text-gray-300">
+    <section
+      id="about"
+      className="min-h-screen bg-gray-50 text-gray-800 dark:bg-gray-800 dark:text-gray-300"
+    >
       <div className="max-w-7xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -226,10 +270,10 @@ const About = () => {
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="min-h-[250px] py-6"
+          className="py-6"
         >
           {activeTab === 0 && renderOverview()}
-          {activeTab === 1 && renderSkill()}
+          {activeTab === 1 && renderSkill(activeCategory, setActiveCategory)}
         </motion.div>
       </div>
     </section>
